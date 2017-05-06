@@ -1,0 +1,32 @@
+{
+  "name": "myclear-bns-webservice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/horngyih/myclear-bns-webservice.git"
+  },
+  "keywords": [
+    "MyClear",
+    "WebService",
+    "Biller-Notification-System"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/horngyih/myclear-bns-webservice/issues"
+  },
+  "homepage": "https://github.com/horngyih/myclear-bns-webservice#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.3.0"
+  }
+}
