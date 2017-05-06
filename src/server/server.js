@@ -14,7 +14,7 @@ var server = _express();
 server.use( _bodyParser.json() );
 
 var rootPath = process.env.SERVER_ROOT || "";
-var serverPort = process.env.SERVER_PORT || 80;
+var serverPort = process.env.SERVER_PORT || 9897;
 serverPort = ( typeof serverPort === "number" )? serverPort : parseInt( serverPort );
 
 function path( subpath ){
