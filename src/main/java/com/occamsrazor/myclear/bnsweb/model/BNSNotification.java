@@ -1,6 +1,23 @@
 package com.occamsrazor.myclear.bnsweb.model;
 
 public class BNSNotification{
+    public static final int PAYERBANKNUM = 0;
+    public static final int PAYERBANKNAME = 1;
+    public static final int BILLERBANKNUM = 2;
+    public static final int BILLERBANKNAME = 3;
+    public static final int ACCOUNTTYPE = 4;
+    public static final int BILLERCODE = 5;
+    public static final int BILLERCODENAME = 6;
+    public static final int NBSPREF = 7;
+    public static final int CHANNEL = 8;
+    public static final int DEBITTIMESTAMP = 9;
+    public static final int REPEATMSG = 10;
+    public static final int RRN = 11;
+    public static final int RRN2 = 12;
+    public static final int CURRENCYCODE = 13;
+    public static final int AMOUNT = 14;
+    public static final int EXTDATA = 15;
+
     protected String payerbanknum;
     protected String payerbankname;
     protected String billerbanknum;
@@ -184,5 +201,70 @@ public class BNSNotification{
         strBuilder.append( getExtdata() );
         strBuilder.append( "|" );
         return strBuilder.toString();
+    }
+
+    public static BNSNotification parseNotification( String str ){
+        return parseNotification( str, "|" );
+    }
+
+    public static BNSNotification parseNotification( String str, String delimiter ){
+        delimiter = ( delimiter != null && !"".equalsIgnoreCase( delimiter.trim() ) )? delimiter : "|";
+
+        BNSNotification result = null;
+        if( str != null && !"".equalsIgnoreCase( str.trim() ) ){
+            result = new BNSNotification();
+            String[] tokens = str.split( delimiter );
+            for( int i = 0; i < tokens.length; i++ ){
+                String token = tokens[i];
+                switch( i ){
+                    case PAYERBANKNUM:
+                        result.setPayerbanknum( token );
+                        break;
+                    case PAYERBANKNAME:
+                        result.setPayerbankname( token );
+                        break;
+                    case BILLERBANKNUM:
+                        result.setBillerbanknum( token );
+                        break;
+                    case BILLERBANKNAME:
+                        result.setBillerbankname( token );
+                        break;
+                    case ACCOUNTTYPE:
+                        result.setAccounttype( token );
+                        break;
+                    case BILLERCODE:
+                        result.setBillercode( token );
+                        break;
+                    case BILLERCODENAME:
+                        result.setBillercodename( token );
+                        break;
+                    case NBSPREF:
+                        result.setNbpsref( token );
+                        break;
+                    case CHANNEL:
+                        result.setChannel( token );
+                        break;
+                    case DEBITTIMESTAMP:
+                        result.setDebittimestamp( token );
+                        break;
+                    case REPEATMSG:
+                        result.setRepeatmsg( token );
+                        break;
+                    case RRN:
+                        result.setRrn( token );
+                        break;
+                    case RRN2:
+                        result.setRrn2( token );
+                        break;
+                    case CURRENCYCODE:
+                        result.setCurrencycode( token );
+                        break;
+                    case EXTDATA:
+                        result.setExtdata( token );
+                        break;
+                }
+            }
+        }
+        return result;
     }
 }
